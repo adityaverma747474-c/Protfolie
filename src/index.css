@@ -1,0 +1,276 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Newsreader:ital,wght@0,400;0,600;1,400;1,600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 99%;
+    --foreground: 240 10% 6%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 6%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 6%;
+
+    --primary: 245 58% 51%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 245 58% 65%;
+
+    --secondary: 240 5% 96%;
+    --secondary-foreground: 240 10% 6%;
+
+    --accent: 347 77% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --warm: 32 95% 54%;
+
+    --muted: 240 5% 96%;
+    --muted-foreground: 240 4% 46%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 240 6% 90%;
+    --input: 240 6% 90%;
+    --ring: 245 58% 51%;
+
+    --radius: 0.75rem;
+
+    --shadow-soft: 0 1px 3px 0 rgb(0 0 0 / 0.04), 0 1px 2px -1px rgb(0 0 0 / 0.04);
+    --shadow-card: 0 1px 3px 0 rgb(0 0 0 / 0.06), 0 1px 2px -1px rgb(0 0 0 / 0.06);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.07), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.08), 0 4px 6px -4px rgb(0 0 0 / 0.05);
+    --shadow-glow: 0 8px 30px -6px hsl(245 58% 51% / 0.3);
+
+    --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 240 10% 6%;
+    --sidebar-primary: 240 5% 15%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 4% 96%;
+    --sidebar-accent-foreground: 240 10% 6%;
+    --sidebar-border: 240 6% 90%;
+    --sidebar-ring: 240 5% 15%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  /* Minimal scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--border));
+    border-radius: 999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground) / 0.3);
+  }
+  html {
+    scrollbar-color: hsl(var(--border)) transparent;
+    scrollbar-width: thin;
+  }
+
+  .font-serif {
+    font-family: 'Newsreader', Georgia, serif;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
+
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer utilities {
+  /* Colorful gradient text */
+  .gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(245 58% 51%), hsl(347 77% 50%));
+  }
+
+  .gradient-text-warm {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(347 77% 50%), hsl(32 95% 54%));
+  }
+
+  .gradient-text-cool {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(245 58% 51%), hsl(200 90% 50%));
+  }
+
+  /* Clean card — no glass, no blur */
+  .glass-card {
+    position: relative;
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+    box-shadow: var(--shadow-card);
+  }
+
+  .glass-card-strong {
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+    box-shadow: var(--shadow-card);
+  }
+
+  .glass-nav {
+    background: hsl(0 0% 100% / 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid hsl(var(--border));
+  }
+
+  .glow-ring {
+    position: relative;
+  }
+  .glow-ring::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1px;
+    background: hsl(var(--border));
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+  .glow-ring:hover::before { opacity: 1; }
+
+  .shadow-soft { box-shadow: var(--shadow-soft); }
+  .shadow-glow { box-shadow: var(--shadow-lg); }
+  .shadow-warm { box-shadow: var(--shadow-md); }
+
+  .transition-smooth {
+    transition: all 0.3s var(--transition-smooth);
+  }
+
+  .transition-bounce {
+    transition: all 0.4s var(--transition-bounce);
+  }
+
+  .grid-pattern {
+    background-image:
+      linear-gradient(hsl(var(--foreground) / 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--foreground) / 0.03) 1px, transparent 1px);
+    background-size: 80px 80px;
+    mask-image: radial-gradient(ellipse at center, black 20%, transparent 70%);
+  }
+
+  .noise-overlay {
+    position: relative;
+  }
+  .noise-overlay::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.02;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.6'/></svg>");
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.animate-float { animation: float 6s ease-in-out infinite; }
+.animate-float-slow { animation: float-slow 9s ease-in-out infinite; }
+.animate-blob { animation: float 8s ease-in-out infinite; }
+
+/* Clean card hover — subtle lift */
+.card-glow { position: relative; }
+.card-glow:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+/* Ghost border button */
+.ghost-border {
+  position: relative;
+  background: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
+}
+.ghost-border:hover {
+  border-color: hsl(var(--foreground) / 0.2);
+  box-shadow: var(--shadow-soft);
+}
+
+/* Print styles for Resume PDF */
+@media print {
+  @page {
+    size: A4;
+    margin: 12mm 10mm;
+  }
+
+  body {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    font-size: 12px;
+  }
+
+  .print\:hidden {
+    display: none !important;
+  }
+
+  .print\:pt-0 {
+    padding-top: 0 !important;
+  }
+
+  .print\:px-8 {
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+  }
+
+  .print\:py-6 {
+    padding-top: 1.5rem !important;
+    padding-bottom: 1.5rem !important;
+  }
+
+  .print\:shadow-none {
+    box-shadow: none !important;
+  }
+
+  .print\:bg-white {
+    background-color: white !important;
+  }
+}

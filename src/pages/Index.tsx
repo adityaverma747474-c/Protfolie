@@ -1,0 +1,25 @@
+import Navbar from "@/components/Navbar";
+import Hero from "@/components/sections/Hero";
+import About from "@/components/sections/About";
+import Projects from "@/components/sections/Projects";
+import Skills from "@/components/sections/Skills";
+import Education from "@/components/sections/Education";
+import Learning from "@/components/sections/Learning";
+import Contact from "@/components/sections/Contact";
+
+const Index = () => {
+  return (
+    <main className="relative min-h-screen bg-background text-foreground">
+      <Navbar />
+      <Hero />
+      <About />
+      <Projects />
+      <Skills />
+      <Education />
+      <Learning />
+      <Contact />
+    </main>
+  );
+};
+
+export default Index;
