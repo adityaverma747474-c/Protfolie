@@ -9,14 +9,16 @@ const About = () => {
             01 — About Me
           </p>
           <h2 className="text-balance text-3xl font-bold tracking-tight md:text-5xl">
-            A little bit <span className="font-serif italic gradient-text">about me</span>
+            A little bit{" "}
+            <span className="font-serif italic gradient-text">about me</span>
           </h2>
         </div>
 
         <div className="grid gap-10 md:grid-cols-5 md:gap-14">
           <div className="md:col-span-3 space-y-5 text-base leading-relaxed text-muted-foreground md:text-lg">
             <p>
-              Hello! I'm <span className="text-foreground font-medium">Aditya Verma</span>,
+              Hello! I'm{" "}
+              <span className="text-foreground font-medium">Aditya Verma</span>,
               a young developer who recently completed Class 12 and is now
               starting an exciting journey into the world of programming and
               technology.
@@ -38,9 +40,21 @@ const About = () => {
 
           <div className="md:col-span-2 space-y-3">
             {[
-              { icon: GraduationCap, title: "Student", desc: "Just completed 12th" },
-              { icon: Rocket, title: "2 Live Projects", desc: "Built & deployed online" },
-              { icon: Lightbulb, title: "Always Learning", desc: "AI & Data Science" },
+              {
+                icon: GraduationCap,
+                title: "Student",
+                desc: "Just completed 12th",
+              },
+              {
+                icon: Rocket,
+                title: "2 Live Projects",
+                desc: "Built & deployed online",
+              },
+              {
+                icon: Lightbulb,
+                title: "Always Learning",
+                desc: "AI & Data Science",
+              },
             ].map(({ icon: Icon, title, desc }) => (
               <div
                 key={title}

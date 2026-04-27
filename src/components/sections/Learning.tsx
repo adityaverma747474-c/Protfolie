@@ -16,11 +16,14 @@ const Learning = () => {
             05 — Currently Learning
           </p>
           <h2 className="text-balance text-3xl font-bold tracking-tight md:text-5xl">
-            What I'm <span className="font-serif italic gradient-text-warm">learning now</span>
+            What I'm{" "}
+            <span className="font-serif italic gradient-text-warm">
+              learning now
+            </span>
           </h2>
           <p className="mt-4 max-w-2xl text-muted-foreground">
-            Learning never stops. Here's what I'm currently exploring to grow as a
-            developer.
+            Learning never stops. Here's what I'm currently exploring to grow as
+            a developer.
           </p>
         </div>
 
@@ -38,7 +41,8 @@ const Learning = () => {
 
         <div className="mt-8 rounded-xl border bg-secondary/50 p-5 text-center">
           <p className="font-mono text-sm text-muted-foreground">
-            "Every expert was once a beginner. I'm just enjoying the process." 🚀
+            "Every expert was once a beginner. I'm just enjoying the process."
+            🚀
           </p>
         </div>
       </div>

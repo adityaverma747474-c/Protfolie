@@ -1,5 +1,10 @@
 import { Canvas, useFrame } from "@react-three/fiber";
-import { Float, MeshDistortMaterial, Environment, ContactShadows } from "@react-three/drei";
+import {
+  Float,
+  MeshDistortMaterial,
+  Environment,
+  ContactShadows,
+} from "@react-three/drei";
 import { Suspense, useRef } from "react";
 import * as THREE from "three";
 
@@ -49,11 +54,7 @@ const Floor = () => {
   return (
     <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -1.6, 0]} receiveShadow>
       <planeGeometry args={[40, 40]} />
-      <meshStandardMaterial
-        color="#fafafa"
-        metalness={0.1}
-        roughness={0.8}
-      />
+      <meshStandardMaterial color="#fafafa" metalness={0.1} roughness={0.8} />
     </mesh>
   );
 };
@@ -73,11 +74,37 @@ const Scene = () => {
 
       <Floor />
 
-      <FloatingShape position={[-2.6, 0.6, 0]} color="#6366f1" geometry="sphere" />
-      <FloatingShape position={[2.6, 0.9, -0.5]} color="#f43f5e" geometry="torus" speed={1.2} />
-      <FloatingShape position={[0, -0.1, 1.2]} color="#f59e0b" geometry="icosa" speed={0.8} />
-      <FloatingShape position={[-3.6, -0.4, -1.5]} color="#8b5cf6" geometry="octa" speed={1.5} scale={0.8} />
-      <FloatingShape position={[3.6, -0.3, 1]} color="#06b6d4" geometry="box" speed={1.1} scale={0.8} />
+      <FloatingShape
+        position={[-2.6, 0.6, 0]}
+        color="#6366f1"
+        geometry="sphere"
+      />
+      <FloatingShape
+        position={[2.6, 0.9, -0.5]}
+        color="#f43f5e"
+        geometry="torus"
+        speed={1.2}
+      />
+      <FloatingShape
+        position={[0, -0.1, 1.2]}
+        color="#f59e0b"
+        geometry="icosa"
+        speed={0.8}
+      />
+      <FloatingShape
+        position={[-3.6, -0.4, -1.5]}
+        color="#8b5cf6"
+        geometry="octa"
+        speed={1.5}
+        scale={0.8}
+      />
+      <FloatingShape
+        position={[3.6, -0.3, 1]}
+        color="#06b6d4"
+        geometry="box"
+        speed={1.1}
+        scale={0.8}
+      />
 
       <ContactShadows
         position={[0, -1.55, 0]}

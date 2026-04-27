@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Newsreader:ital,wght@0,400;0,600;1,400;1,600&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Newsreader:ital,wght@0,400;0,600;1,400;1,600&family=JetBrains+Mono:wght@400;500&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -39,10 +39,14 @@
 
     --radius: 0.75rem;
 
-    --shadow-soft: 0 1px 3px 0 rgb(0 0 0 / 0.04), 0 1px 2px -1px rgb(0 0 0 / 0.04);
-    --shadow-card: 0 1px 3px 0 rgb(0 0 0 / 0.06), 0 1px 2px -1px rgb(0 0 0 / 0.06);
-    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.07), 0 2px 4px -2px rgb(0 0 0 / 0.05);
-    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.08), 0 4px 6px -4px rgb(0 0 0 / 0.05);
+    --shadow-soft:
+      0 1px 3px 0 rgb(0 0 0 / 0.04), 0 1px 2px -1px rgb(0 0 0 / 0.04);
+    --shadow-card:
+      0 1px 3px 0 rgb(0 0 0 / 0.06), 0 1px 2px -1px rgb(0 0 0 / 0.06);
+    --shadow-md:
+      0 4px 6px -1px rgb(0 0 0 / 0.07), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+    --shadow-lg:
+      0 10px 15px -3px rgb(0 0 0 / 0.08), 0 4px 6px -4px rgb(0 0 0 / 0.05);
     --shadow-glow: 0 8px 30px -6px hsl(245 58% 51% / 0.3);
 
     --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
@@ -70,10 +74,13 @@
 
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-family:
+      "Inter",
+      system-ui,
+      -apple-system,
+      sans-serif;
   }
 
-  /* Minimal scrollbar */
   ::-webkit-scrollbar {
     width: 8px;
     height: 8px;
@@ -94,34 +101,44 @@
   }
 
   .font-serif {
-    font-family: 'Newsreader', Georgia, serif;
+    font-family: "Newsreader", Georgia, serif;
     font-weight: 400;
     letter-spacing: -0.01em;
   }
 
   .font-mono {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: "JetBrains Mono", monospace;
   }
 }
 
 @layer utilities {
-  /* Colorful gradient text */
   .gradient-text {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, hsl(245 58% 51%), hsl(347 77% 50%));
+    background-image: linear-gradient(
+      135deg,
+      hsl(245 58% 51%),
+      hsl(347 77% 50%)
+    );
   }
 
   .gradient-text-warm {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, hsl(347 77% 50%), hsl(32 95% 54%));
+    background-image: linear-gradient(
+      135deg,
+      hsl(347 77% 50%),
+      hsl(32 95% 54%)
+    );
   }
 
   .gradient-text-cool {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, hsl(245 58% 51%), hsl(200 90% 50%));
+    background-image: linear-gradient(
+      135deg,
+      hsl(245 58% 51%),
+      hsl(200 90% 50%)
+    );
   }
 
-  /* Clean card — no glass, no blur */
   .glass-card {
     position: relative;
     background: hsl(var(--card));
@@ -152,18 +169,28 @@
     border-radius: inherit;
     padding: 1px;
     background: hsl(var(--border));
-    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
     -webkit-mask-composite: xor;
-            mask-composite: exclude;
+    mask-composite: exclude;
     opacity: 0;
     transition: opacity 0.3s ease;
     pointer-events: none;
   }
-  .glow-ring:hover::before { opacity: 1; }
+  .glow-ring:hover::before {
+    opacity: 1;
+  }
 
-  .shadow-soft { box-shadow: var(--shadow-soft); }
-  .shadow-glow { box-shadow: var(--shadow-lg); }
-  .shadow-warm { box-shadow: var(--shadow-md); }
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+  .shadow-glow {
+    box-shadow: var(--shadow-lg);
+  }
+  .shadow-warm {
+    box-shadow: var(--shadow-md);
+  }
 
   .transition-smooth {
     transition: all 0.3s var(--transition-smooth);
@@ -200,31 +227,51 @@
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
 }
 
 @keyframes float-slow {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-12px); }
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
 }
 
 @keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
 }
 
-.animate-float { animation: float 6s ease-in-out infinite; }
-.animate-float-slow { animation: float-slow 9s ease-in-out infinite; }
-.animate-blob { animation: float 8s ease-in-out infinite; }
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+.animate-float-slow {
+  animation: float-slow 9s ease-in-out infinite;
+}
+.animate-blob {
+  animation: float 8s ease-in-out infinite;
+}
 
-/* Clean card hover — subtle lift */
-.card-glow { position: relative; }
+.card-glow {
+  position: relative;
+}
 .card-glow:hover {
   box-shadow: var(--shadow-lg);
 }
 
-/* Ghost border button */
 .ghost-border {
   position: relative;
   background: hsl(var(--card));
@@ -235,7 +282,6 @@
   box-shadow: var(--shadow-soft);
 }
 
-/* Print styles for Resume PDF */
 @media print {
   @page {
     size: A4;

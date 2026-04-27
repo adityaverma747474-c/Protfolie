@@ -33,7 +33,8 @@ const Projects = () => {
             02 — Projects
           </p>
           <h2 className="text-balance text-3xl font-bold tracking-tight md:text-5xl">
-            Things I've <span className="font-serif italic gradient-text-warm">built</span>
+            Things I've{" "}
+            <span className="font-serif italic gradient-text-warm">built</span>
           </h2>
           <p className="mt-4 max-w-2xl text-muted-foreground">
             Two live websites I created as a beginner, both deployed and
@@ -50,18 +51,19 @@ const Projects = () => {
               rel="noopener noreferrer"
               className="group relative flex flex-col overflow-hidden rounded-2xl border bg-card transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
             >
-              {/* Live Preview area */}
               <div className="relative aspect-[16/10] overflow-hidden bg-secondary">
-
-                {/* Live Iframe */}
                 <div className="absolute inset-0 overflow-hidden pointer-events-none">
                   <iframe
                     src={p.url}
                     title={p.title}
                     className="absolute h-[200%] w-[200%] origin-top-left scale-[0.5] border-none opacity-0 transition-opacity duration-1000"
                     onLoad={(e) => {
-                      (e.target as HTMLIFrameElement).classList.remove('opacity-0');
-                      (e.target as HTMLIFrameElement).classList.add('opacity-100');
+                      (e.target as HTMLIFrameElement).classList.remove(
+                        "opacity-0",
+                      );
+                      (e.target as HTMLIFrameElement).classList.add(
+                        "opacity-100",
+                      );
                     }}
                   />
                 </div>
@@ -71,7 +73,6 @@ const Projects = () => {
                 </span>
               </div>
 
-              {/* Content */}
               <div className="relative flex flex-1 flex-col p-6">
                 <div className="mb-4 flex items-center gap-3">
                   <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10">
@@ -86,7 +87,6 @@ const Projects = () => {
                   {p.description}
                 </p>
 
-                {/* Tech stack tags */}
                 <div className="mb-5 flex flex-wrap gap-2">
                   {p.stack.map((t) => (
                     <span

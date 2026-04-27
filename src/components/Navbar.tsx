@@ -23,7 +23,6 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Active section observer
   useEffect(() => {
     const sections = links
       .map((l) => document.getElementById(l.href.replace("#", "")))

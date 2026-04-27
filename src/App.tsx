@@ -13,22 +13,23 @@ const queryClient = new QueryClient();
 
 const App = () => {
   useEffect(() => {
-    // Disable right-click
     const handleContextMenu = (e: MouseEvent) => {
       e.preventDefault();
     };
 
-    // Disable common DevTools shortcuts
     const handleKeyDown = (e: KeyboardEvent) => {
-      // F12
       if (e.key === "F12") {
         e.preventDefault();
       }
-      // Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+Shift+C
-      if (e.ctrlKey && e.shiftKey && (e.key === "I" || e.key === "J" || e.key === "C")) {
+
+      if (
+        e.ctrlKey &&
+        e.shiftKey &&
+        (e.key === "I" || e.key === "J" || e.key === "C")
+      ) {
         e.preventDefault();
       }
-      // Ctrl+U (View Source)
+
       if (e.ctrlKey && e.key === "u") {
         e.preventDefault();
       }
@@ -52,7 +53,7 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/resume" element={<Resume />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

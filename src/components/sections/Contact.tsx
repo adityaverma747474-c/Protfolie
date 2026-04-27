@@ -11,7 +11,8 @@ const Contact = () => {
               06 — Contact
             </p>
             <h2 className="text-balance mb-4 text-3xl font-bold tracking-tight md:text-5xl">
-              Let's <span className="font-serif italic gradient-text">connect</span>
+              Let's{" "}
+              <span className="font-serif italic gradient-text">connect</span>
             </h2>
             <p className="mx-auto mb-10 max-w-2xl text-muted-foreground">
               I'm always open to learning, collaborating on small projects, or
@@ -39,9 +40,24 @@ const Contact = () => {
 
             <div className="mx-auto grid max-w-2xl gap-3 sm:grid-cols-3">
               {[
-                { icon: Mail, label: "Email", value: "adityaverma747474@gmail.com", href: "mailto:adityaverma747474@gmail.com" },
-                { icon: Linkedin, label: "LinkedIn", value: "Aditya Verma", href: "https://www.linkedin.com/in/aditya-verma-0910272ba" },
-                { icon: Globe, label: "Website", value: "doearno.in", href: "https://official.doearno.in" },
+                {
+                  icon: Mail,
+                  label: "Email",
+                  value: "adityaverma747474@gmail.com",
+                  href: "mailto:adityaverma747474@gmail.com",
+                },
+                {
+                  icon: Linkedin,
+                  label: "LinkedIn",
+                  value: "Aditya Verma",
+                  href: "https://www.linkedin.com/in/aditya-verma-0910272ba",
+                },
+                {
+                  icon: Globe,
+                  label: "Website",
+                  value: "doearno.in",
+                  href: "https://official.doearno.in",
+                },
               ].map((c) => (
                 <a
                   key={c.label}
@@ -54,7 +70,9 @@ const Contact = () => {
                   <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground">
                     {c.label}
                   </p>
-                  <p className="break-all text-center text-sm font-medium">{c.value}</p>
+                  <p className="break-all text-center text-sm font-medium">
+                    {c.value}
+                  </p>
                 </a>
               ))}
             </div>
@@ -62,11 +80,14 @@ const Contact = () => {
         </div>
 
         <footer className="mt-12 flex flex-col items-center gap-6 text-center text-sm text-muted-foreground">
-          {/* Social icon bar */}
           <div className="flex items-center gap-2">
             {[
               { Icon: Github, label: "GitHub", href: "https://github.com/" },
-              { Icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/aditya-verma-0910272ba" },
+              {
+                Icon: Linkedin,
+                label: "LinkedIn",
+                href: "https://www.linkedin.com/in/aditya-verma-0910272ba",
+              },
               { Icon: Twitter, label: "Twitter", href: "https://twitter.com/" },
             ].map(({ Icon, label, href }) => (
               <a
@@ -81,9 +102,7 @@ const Contact = () => {
               </a>
             ))}
           </div>
-          <p>
-            © {new Date().getFullYear()} Aditya Verma
-          </p>
+          <p>© {new Date().getFullYear()} Aditya Verma</p>
         </footer>
       </div>
     </section>

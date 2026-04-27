@@ -33,18 +33,17 @@ const Education = () => {
             04 — Education
           </p>
           <h2 className="text-balance text-3xl font-bold tracking-tight md:text-5xl">
-            My learning <span className="font-serif italic gradient-text">journey</span>
+            My learning{" "}
+            <span className="font-serif italic gradient-text">journey</span>
           </h2>
         </div>
 
         <div className="relative">
-          {/* Timeline vertical line */}
           <div className="absolute left-5 top-2 bottom-2 w-px bg-gradient-to-b from-primary via-accent to-transparent md:left-7" />
 
           <div className="space-y-6">
             {items.map((item, i) => (
               <div key={i} className="relative pl-14 md:pl-18">
-                {/* Dot */}
                 <div className="absolute left-0 top-2 flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-primary-foreground md:h-14 md:w-14 md:left-0">
                   <item.icon className="h-4 w-4 md:h-5 md:w-5" />
                 </div>
@@ -57,7 +56,9 @@ const Education = () => {
                   <p className="mb-3 text-sm text-muted-foreground">
                     {item.place}
                   </p>
-                  <p className="text-sm leading-relaxed text-muted-foreground">{item.desc}</p>
+                  <p className="text-sm leading-relaxed text-muted-foreground">
+                    {item.desc}
+                  </p>
                 </div>
               </div>
             ))}
