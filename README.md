@@ -1,3 +1,3 @@
-# Welcome to your Lovable project
+# Aditya Verma — Portfolio
 
-TODO: Document your project here
+Personal portfolio website showcasing skills, projects, and resume.
