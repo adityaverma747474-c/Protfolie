@@ -52,13 +52,6 @@ const Projects = () => {
             >
               {/* Live Preview area */}
               <div className="relative aspect-[16/10] overflow-hidden bg-secondary">
-                {/* Fallback Image */}
-                <img
-                  src={p.image}
-                  alt={`${p.title} preview`}
-                  loading="lazy"
-                  className="absolute inset-0 h-full w-full object-cover opacity-20 transition-all duration-500 group-hover:scale-105"
-                />
 
                 {/* Live Iframe */}
                 <div className="absolute inset-0 overflow-hidden pointer-events-none">
